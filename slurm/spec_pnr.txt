@@ -1,0 +1,12 @@
+# EDA place and route -- the ninth industrial category. Graded on an integer grid, with three hard zero-tolerance checks.
+# Asset status: reference solver self-check 12/12 (including 5 negative assertions), reference solutions for all 12 designs pass an independent checker,
+#   no pin reuse, d08_tight with zero headroom (the zero-slack packing trap is real), calibration 4/4, empty baseline 0/4.
+# Achievability probe: another legal engine (instance order reversed) gives a median wirelength ratio of 1.00 over a 0.66-1.40 range,
+#   so the informational metric is reachable, but it depends heavily on routing order and must not be read as a capability signal.
+# 180 turns, the same tier as cad3d (placement is packing, routing is maze search; the work is comparable).
+# task        condition  model                                  run_id  max_turns
+place_route noagent none base0 10
+place_route protocol us.anthropic.claude-fable-5-1[1m] m1 180
+place_route protocol us.anthropic.claude-opus-5[1m] m1 180
+place_route protocol us.anthropic.claude-sonnet-5 m1 180
+place_route protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 180

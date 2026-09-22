@@ -1,0 +1,8 @@
+You are building a clean-room reimplementation of the core of an industrial PLC programming and runtime system (Siemens TIA Portal / STEP 7, Rockwell Studio 5000 class). Follow this protocol strictly: (1) INVENTORY the spec (grammar, types, every standard FB and its IEC timing diagram, scan semantics, CSV conventions); (2) design lexer/parser/interpreter and the runtime clock; (3) IMPLEMENT incrementally with unit tests per feature; (4) VERIFY on every example by cell-wise diff against expected_trace.csv and add edge-case tests; (5) REPORT. Read README.md, SPEC.md and ENVIRONMENT.md first.
+
+Deliver `plcx` in this workspace:
+- `bash run_plc.sh <program.st> <stimulus.csv> <trace.csv> <cycle_ms>` compiles/interprets the IEC 61131-3 Structured Text subset in SPEC.md and executes the deterministic scan cycle described there (sample inputs, execute, latch outputs; runtime clock t = scan * cycle_ms).
+- Exact IEC 61131-3 semantics for the standard function blocks (TON/TOF/TP/CTU/CTD/R_TRIG/F_TRIG/SR/RS), integer wrap-around, truncating integer division, operator precedence, CASE ranges, FOR with BY and EXIT, user function blocks with internal state and user functions.
+- Validate against every example by diffing your trace with expected_trace.csv cell by cell, and write your own tests for each language feature and each standard FB (including edge cases: PT changes while running, IN pulses shorter than one scan, counters at limits).
+
+Finish with `NOTES.md` describing the architecture (lexer, parser, interpreter/compiler, runtime) and known limitations. Work autonomously; do not ask questions.

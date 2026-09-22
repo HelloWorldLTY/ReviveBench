@@ -1,0 +1,22 @@
+# glm-5.3-flash option-C re-run (chosen 2026-09-13): re-run only the 9 cells affected by the output-cap problem, run_id m4.
+#
+# The problem: the adapter used to write Claude Code's max_tokens (=64000) into max_completion_tokens, which this
+# provider silently ignores, so early GLM runs had no cap at all and ran under different conditions from the
+# Claude models. This batch uses --token-field max_tokens,
+# and batch_glm.sbatch measures that the cap is honoured before starting.
+#
+# Why only 9 cells: for cad3d/fem/plc/plm the whole m1 run emitted <= 64K output tokens, so no single turn can
+# have exceeded the cap; those cells are equivalent under both conditions and are kept.
+# Of the rest, 5 cannot be decided from the existing data (stats/spice/cad2d/synth/erp) and 4 were infrastructure
+# failures (place_route/cfd/scada/mes).
+# ALLOW_RIDS in build_matrix.py restricts these 9 cells to m4, so the earlier uncapped runs never win best-run.
+# Turn budgets match the original batch task by task; the 10800s wall clock matches the other models.
+stats_nist     protocol glm-5.3-flash m4   100
+spice_ngspice  protocol glm-5.3-flash m4   100
+cad2d_dxf      protocol glm-5.3-flash m4   120
+synth_verilog  protocol glm-5.3-flash m4   150
+erp_ledger     protocol glm-5.3-flash m4   180
+place_route    protocol glm-5.3-flash m4   180
+cfd_solver     protocol glm-5.3-flash m4   180
+scada_dcs      protocol glm-5.3-flash m4   180
+mes_exec       protocol glm-5.3-flash m4   150

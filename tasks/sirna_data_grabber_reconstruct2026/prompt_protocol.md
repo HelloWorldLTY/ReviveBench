@@ -1,0 +1,8 @@
+You are restoring a Python scientific software package whose core module was lost.
+
+Follow this protocol strictly: (1) INVENTORY every call site, README/docs/example that references the missing module and write down the exact required signatures and behaviours; (2) map each documented behaviour to code; (3) IMPLEMENT the module faithfully; (4) VERIFY by exercising every call site and the documented examples end to end, and by writing tests for the reconstructed module; (5) REPORT. Read SITUATION.md and ENVIRONMENT.md first. The file `src/sirna_data/rank_confidence.py` of package `sirna_data` is missing, and so is the package's test suite. Reconstruct the module so that the package works exactly as it did before:
+- Every name that other modules import from it must exist with the semantics implied by its call sites, README, docs and examples; keep the same public API (function/class names, signatures, return types, error behaviour) so that the original hidden test suite passes.
+- Implement the actual functionality described by the documentation, not stubs. Match documented defaults, edge cases and numerical conventions exactly.
+- `pip install -e .` must work and `import sirna_data` must succeed; write your own tests for the reconstructed module and run them.
+
+Finish by writing `RESTORE_NOTES.md` describing what you reconstructed and any uncertainty. Work autonomously; do not ask questions.

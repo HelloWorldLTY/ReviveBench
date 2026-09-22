@@ -1,0 +1,8 @@
+# cad3d_brep model matrix, filling in opus5 and haiku4.5.
+# The turn cap must be the same 180 as the first batch (fable5.1 / sonnet5, job 2443272), or the results are not
+# comparable: the turn budget is itself a deciding variable (sonnet first passed cad2d only after its cap rose to 120).
+# haiku4.5 is 0/5 on the five industrial engines and serves as a cheap difficulty probe: if it passes, the task is
+# not hard enough to be a benchmark.
+# task        condition  model                                  run_id  max_turns
+cad3d_brep protocol us.anthropic.claude-opus-5[1m] m1 180
+cad3d_brep protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 180

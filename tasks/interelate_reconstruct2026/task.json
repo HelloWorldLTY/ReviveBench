@@ -1,0 +1,28 @@
+{
+  "id": "interelate_reconstruct2026",
+  "tier": "T3-reconstruct-2026",
+  "cohort": "post-cutoff-2026",
+  "description": "interelate: module interelate/calculate_overlap_counts.py (82 lines, imported by 3 modules) deleted and the package's own test suite hidden; verifier = the hidden suite (133 tests pass in a fresh env).",
+  "source": "interelate @ 8cd8e7268c8a73d2bde67be88f33369747230693",
+  "env": "py312_base",
+  "package": "interelate",
+  "target_module": "interelate/calculate_overlap_counts.py",
+  "public_names": [
+    "calculate_overlap_counts",
+    "calculate_query_overlap_count"
+  ],
+  "imported_names": [
+    "GenomicDistances",
+    "OverlapCounts",
+    "calculate_overlap_counts"
+  ],
+  "hidden_tests": [
+    "conftest.py",
+    "test"
+  ],
+  "visible_tests": [],
+  "oracle_passed": 133,
+  "oracle_summary": "133 passed in 1.75s",
+  "verify_timeout": 2400,
+  "constraints": {}
+}

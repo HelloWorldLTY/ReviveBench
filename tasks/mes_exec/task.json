@@ -1,0 +1,4 @@
+{"id": "mes_exec", "tier": "I12-mes", "cohort": "industrial",
+ "description": "Clean-room MES core (Siemens Opcenter / Rockwell FactoryTalk class): finite-capacity scheduling of work orders through routed operations, FIFO lot consumption with full genealogy, scrap and yield reconciliation, and OEE. The dispatch rule is fully specified and deterministic, so the schedule, the genealogy and the inventory balance are graded with no tolerance at all; only the OEE ratios carry a 1e-9 band.",
+ "source": "fully specified dispatch and consumption semantics; reference implementation cross-checked against hand-computed schedules and material balances",
+ "env": "py312_numpy", "visible_tests": [], "verify_timeout": 5400, "constraints": {}, "domain_skill": "mes"}

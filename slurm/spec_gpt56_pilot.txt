@@ -1,0 +1,31 @@
+# Pilot batch for the three gpt-5.6 variants (sol / luna / terra)
+#
+# Purpose: validate the pipeline before paying for the full run. The question is not how good the models are, but four pipeline facts:
+#   1) Claude Code can drive all three through the gateway's Anthropic side (tool round-trips and streaming both work)
+#   2) turns and cost are accounted correctly by the harness (trajectory.jsonl parses)
+#   3) the hidden verifiers judge their output normally (no wipe-out caused by the environment or the entry script)
+#   4) the run directory name protocol__gpt-5.6-*__p1 does not collide with an existing run
+#
+# These three tasks were chosen because they discriminate (the four existing models spread out on them), and they are cheap and quick:
+#   scada_dcs   $0.42-3.21   11 scenarios, zero-tolerance transactional and timing logic
+#   cfd_solver  $0.57-6.80   13 cases, numerical tolerance plus three exact checks
+#   erp_ledger  $0.82-3.26   10 scenarios, zero tolerance throughout
+# The noagent baseline has been run and archived for all three, so this batch does not repeat it.
+#
+# About 9 runs, $15-30, roughly 1-2 hours of wall clock at concurrency 3.
+#
+# WARNING cost accounting: Claude Code must launch under a name it knows (claude-opus-4-8) while the adapter substitutes the real upstream,
+#   so cost_usd in results.json is computed at the opus-4-8 rate, has nothing to do with gpt-5.6, and is fictional.
+#   It must never sit in a $ column beside the Claude models. The token counts are real (passed through from the OpenAI usage field),
+#   and so is the model label (run_task.py decouples launch_model from the accounted model).
+#
+# task        condition  model           run_id  max_turns
+scada_dcs protocol gpt-5.6-sol p1 180
+scada_dcs protocol gpt-5.6-luna p1 180
+scada_dcs protocol gpt-5.6-terra p1 180
+cfd_solver protocol gpt-5.6-sol p1 180
+cfd_solver protocol gpt-5.6-luna p1 180
+cfd_solver protocol gpt-5.6-terra p1 180
+erp_ledger protocol gpt-5.6-sol p1 180
+erp_ledger protocol gpt-5.6-luna p1 180
+erp_ledger protocol gpt-5.6-terra p1 180

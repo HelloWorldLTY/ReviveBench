@@ -1,0 +1,14 @@
+# complete the 5-engine x 4-model matrix: stats, fem, cad2d
+# cad2d is the hard one (sonnet 0/6 historically); give every model 120 turns there
+stats_nist protocol us.anthropic.claude-fable-5-1[1m] m1 100
+stats_nist protocol us.anthropic.claude-opus-5[1m] m1 100
+stats_nist protocol us.anthropic.claude-sonnet-5 m1 100
+stats_nist protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 100
+fem_nafems protocol us.anthropic.claude-fable-5-1[1m] m1 100
+fem_nafems protocol us.anthropic.claude-opus-5[1m] m1 100
+fem_nafems protocol us.anthropic.claude-sonnet-5 m1 100
+fem_nafems protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 100
+cad2d_dxf protocol us.anthropic.claude-fable-5-1[1m] m1 120
+cad2d_dxf protocol us.anthropic.claude-opus-5[1m] m1 120
+cad2d_dxf protocol us.anthropic.claude-sonnet-5 m1 120
+cad2d_dxf protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 120

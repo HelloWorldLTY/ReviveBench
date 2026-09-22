@@ -1,0 +1,9 @@
+You are building a clean-room reimplementation of the geometry core of a 3D CAD system (Parasolid / ACIS class). Follow this protocol strictly: (1) INVENTORY the spec — every node type, every field, the regularisation rule, the output contract, and each accuracy target; (2) DESIGN the representation (triangle mesh vs exact surfaces), the tessellation strategy per primitive, and the CSG algorithm (BSP-based mesh CSG, or exact surface intersection), and decide up front how you will keep the mesh watertight through a boolean; (3) IMPLEMENT incrementally with unit tests, starting from primitives whose volume and area you can verify against closed-form formulas; (4) VERIFY on every example against the expected answers, and add your own cases for the degenerate configurations the spec warns about — coplanar faces, exact touching, nested cavities, empty results; (5) REPORT. Read README.md, SPEC.md and ENVIRONMENT.md first.
+
+Deliver `solidx` in this workspace:
+- `bash run_solid.sh <model.json> <out.json>` implements every node type in SPEC.md, writes the mass properties and point-membership answers to `out.json`, and writes a watertight STL to the path the model names.
+- Python + NumPy only. The environment is checked for forbidden geometry libraries.
+- Watch the two checks that have no tolerance: the STL's watertightness and Euler characteristic, and the `inside` classification for every query point on every model. Volume within 0.5% will not rescue a boolean that is topologically wrong.
+- Validate against every example in examples/ (model + expected answer) and write your own tests, including a difference that empties the solid, a cavity fully enclosed inside another solid, and a through-hole.
+
+Finish with `NOTES.md` describing the representation, the CSG algorithm, and how you handled the degenerate cases. Work autonomously; do not ask questions.

@@ -1,0 +1,14 @@
+{
+  "id": "qupath_modern",
+  "tier": "T5-build-reproduce",
+  "description": "QuPath v0.2.3 (Sep 2020; Java 14 / JavaFX 14 / Gradle 6.5 / Bio-Formats 6.5) must build from source with JDK 21 and a current Gradle, and its headless script CLI must reproduce the official 0.2.3 release's H&E cell detection on a test slide.",
+  "source": "https://github.com/qupath/qupath @ v0.2.3 (43aad4ecda893a7eb03c30774e64da5b9547bc86); oracle = official QuPath-0.2.3-Linux.tar.xz",
+  "env": "qupath_build",
+  "visible_tests": ["qupath-core/src/test", "qupath-core-processing/src/test"],
+  "verify_timeout": 2400,
+  "constraints": {},
+  "jdk_min_class_version": 61,
+  "extra_env": {"JAVA_HOME": "${REVIVE_JAVA21_HOME}",
+                "PATH_PREPEND": "${REVIVE_JAVA21_HOME}/bin",
+                "GRADLE_USER_HOME": "${REVIVE_ROOT}/.gradle_cache"}
+}

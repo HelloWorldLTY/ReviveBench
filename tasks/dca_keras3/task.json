@@ -1,0 +1,12 @@
+{
+  "id": "dca_keras3",
+  "tier": "T2-rot-hard",
+  "description": "DCA, deep count autoencoder (Eraslan et al. 2019, last commit 2022-07, pinned to keras<2.6 / tf<2.5) must run under Python 3.11 / TensorFlow>=2.16 (Keras 3) / NumPy>=2 / pandas>=2 / current scanpy+anndata. Uses removed APIs: keras.engine.topology, keras.objectives, tf.compat.v1 sessions.",
+  "source": "https://github.com/theislab/dca @ 6abd12469734d743e8c24e0d37cbb006ae1a0f54",
+  "env": "modern_tf",
+  "oracle_env": "oracle_dca",
+  "visible_tests": ["dca/test.py", "data/"],
+  "verify_timeout": 3000,
+  "constraints": {"tensorflow": "2.16", "keras": "3.0", "numpy": "2.0", "pandas": "2.0", "scanpy": "1.10", "anndata": "0.10"},
+  "thresholds": {"r_masked_min": 0.75, "r_resid_min": 0.05}
+}

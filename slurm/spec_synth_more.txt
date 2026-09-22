@@ -1,0 +1,8 @@
+# synth_verilog model matrix, filling in opus5 and haiku4.5.
+# The turn cap is the same 150 as the first batch (fable5.1 / sonnet5, job 2438169), keeping the comparison controlled.
+# Note: the checks for this task were tightened -- simulation counterexamples and formal equivalence no longer get
+# any leeway beyond the 0.9 tolerance, and sonnet5 in the first batch was re-graded from 5/5 to 4/5 because of three
+# simulation counterexamples on pwm8.
+# task           condition  model                                  run_id  max_turns
+synth_verilog protocol us.anthropic.claude-opus-5[1m] m1 150
+synth_verilog protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 150

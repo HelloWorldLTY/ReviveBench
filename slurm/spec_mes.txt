@@ -1,0 +1,15 @@
+# MES execution core -- the twelfth industrial category. The dispatch rules are fully determined, so scheduling,
+# genealogy and material balance are zero tolerance; only the four OEE ratios get 1e-9.
+# Asset status: reference implementation hand-checked 15/15, 11 scenarios spot-checked by hand 14/14, calibration 5/5, empty baseline 0/5.
+# Generator guards: the material balance must close in the reference answer itself, the schedule must already be
+#   sorted per the specification, operations must not overlap on one work centre (finite capacity), and no scenario
+#   may have an empty check.
+# Trap coverage: the dispatch key (priority / release time / order number) decides contention order; setup counted every time;
+#   scrap floored and compounding across operations (200->190->181, where 9.5 must floor to 9); FIFO across three lots;
+#   a material-starved order stalling without occupying a machine; setup overhead dragging performance down to 0.2.
+# task      condition  model                                  run_id  max_turns
+mes_exec noagent none base0 10
+mes_exec protocol us.anthropic.claude-fable-5-1[1m] m1 150
+mes_exec protocol us.anthropic.claude-opus-5[1m] m1 150
+mes_exec protocol us.anthropic.claude-sonnet-5 m1 150
+mes_exec protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 150

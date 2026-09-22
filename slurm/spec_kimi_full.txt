@@ -1,0 +1,15 @@
+# kimi-k3 across the 13 industrial tasks. Turn budgets follow spec_gpt56_full.txt task by task, to stay comparable.
+# Usage: sbatch slurm/batch_kimi.sbatch slurm/spec_kimi_full.txt 3
+stats_nist     protocol kimi-k3 m1 100
+spice_ngspice  protocol kimi-k3 m1 100
+plc_iec61131   protocol kimi-k3 m1 100
+fem_nafems     protocol kimi-k3 m1 100
+cad2d_dxf      protocol kimi-k3 m1 120
+synth_verilog  protocol kimi-k3 m1 150
+cad3d_brep     protocol kimi-k3 m1 180
+erp_ledger     protocol kimi-k3 m1 180
+place_route    protocol kimi-k3 m1 180
+cfd_solver     protocol kimi-k3 m1 180
+scada_dcs      protocol kimi-k3 m1 180
+mes_exec       protocol kimi-k3 m1 150
+plm_bom        protocol kimi-k3 m1 150

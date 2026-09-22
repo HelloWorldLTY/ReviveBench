@@ -1,0 +1,3 @@
+# Revival experiments, GPU tasks: caduceus_modern needs a GPU, and fable had max_turns=100 at the time. Run serially so two runs do not contend for one card.
+caduceus_modern default us.anthropic.claude-sonnet-5                  s1 100
+caduceus_modern default us.anthropic.claude-haiku-4-5-20251001-v1:0   s1 100

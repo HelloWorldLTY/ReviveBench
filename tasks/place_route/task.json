@@ -1,0 +1,4 @@
+{"id": "place_route", "tier": "I9-eda-pnr", "cohort": "industrial",
+ "description": "Clean-room standard-cell place-and-route engine (Cadence Innovus / Synopsys ICC2 class): legalised row-based placement with fixed blockages, then grid routing on two metal layers with vias. Judged on a discrete integer grid, so the hard checks carry no tolerance at all: placement legality (in-die, row/site aligned, no overlap), routing correctness (every net's pins connected, no cross-net short, layer direction respected, vias backed by both layers) and self-consistency of the reported wirelength. Wirelength quality vs a reference router is informational.",
+ "source": "hidden circuits; references from an independent legality/connectivity checker and a reference row-placer + maze router, all integer arithmetic",
+ "env": "py312_numpy", "visible_tests": [], "verify_timeout": 7200, "constraints": {}, "domain_skill": "eda-pnr"}

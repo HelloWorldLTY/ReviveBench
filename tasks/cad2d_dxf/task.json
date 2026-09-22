@@ -1,0 +1,3 @@
+{"id": "cad2d_dxf", "tier": "I4-cad-2d", "cohort": "industrial",
+ "description": "Clean-room 2D CAD kernel (AutoCAD class): DXF R2010 reader/writer (LINE/CIRCLE/ARC/LWPOLYLINE with bulges/TEXT/layers), measure, round-corner offset, fillet, boolean, transform, write; graded on 31 hidden operations vs ezdxf+shapely.",
+ "source": "hidden drawings from ezdxf, references from shapely", "env": "py312_numpy", "visible_tests": [], "verify_timeout": 2400, "constraints": {}, "domain_skill": "cad2d-dxf"}

@@ -1,0 +1,23 @@
+# Third glm-5.3-flash re-run (counted in the main table), using the adapter with SSE keepalive. Hold submission until
+# both adapter end-to-end tests pass.
+#
+# Root cause (measured; this corrects two earlier diagnoses -- it is neither GLM hanging nor a platform defect):
+# the model enters very long reasoning on these contexts. A chunk-by-chunk stream trace of the failing place_route m2
+# request: headers at 0.8s,
+# reasoning content streaming continuously for 803s with no pause longer than 10s, reasoning_tokens=75,085
+# (completion 75,227), finish=stop;
+# and under streaming max_completion_tokens=1 was not honoured. The old adapter waited for the complete upstream
+# response before writing any SSE,
+# so Claude Code saw no bytes, gave up, resent ten times and reported "Request timed out"; m1 and m2 produced nothing.
+# Those 8-14 minutes are the model's own thinking time, so charging them to the same wall clock as the other models is fair.
+# The new adapter sends message_start first and a ping every 15s while waiting (measured: Claude Code waits the full
+# 480s and sends one request).
+#
+# Turn budgets and the wall clock (--agent-timeout 10800) match the other models, keeping conditions equal; but some
+# GLM turns are extremely slow, so these runs may hit the wall clock first, and any run cut off that way (agent_rc=124)
+# must be marked separately in the results.
+# m1 and m2 are kept as evidence of infrastructure failure; build_matrix.py excludes INFRA and takes m3.
+place_route    protocol glm-5.3-flash m3   180
+cfd_solver     protocol glm-5.3-flash m3   180
+scada_dcs      protocol glm-5.3-flash m3   180
+mes_exec       protocol glm-5.3-flash m3   150

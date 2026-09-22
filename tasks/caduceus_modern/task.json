@@ -1,0 +1,15 @@
+{
+  "id": "caduceus_modern",
+  "tier": "T4-reproduce-gpu",
+  "description": "Caduceus (Schiff et al. ICML 2024) DNA foundation model. Repo pins mamba-ssm==1.2.0.post1 / causal-conv1d 1.2 / torch 2.x-cu118 (2024). Must run in a fresh env with torch>=2.5 and transformers>=4.45 on a current GPU node: build/obtain compatible mamba-ssm kernels, load the pretrained Caduceus-PS checkpoint, and reproduce its defining property (reverse-complement equivariance) plus a masked-LM sanity check on human DNA.",
+  "source": "https://github.com/kuleshov-group/caduceus @ 2593c807ebfc0aede05e7a991474b1a0e60fdc93 ; HF kuleshov-group/caduceus-ps_seqlen-131k_d_model-256_n_layer-16",
+  "env": "modern_torch",
+  "gpu": true,
+  "visible_tests": ["caduceus/tests/"],
+  "verify_timeout": 3000,
+  "constraints": {"torch": "2.5", "transformers": "4.45"},
+  "extra_env": {"CUDA_HOME": "${REVIVE_CUDA_HOME}",
+                "PATH_PREPEND": "${REVIVE_CUDA_HOME}/bin",
+                "LD_LIBRARY_PATH": "${REVIVE_CUDA_HOME}/lib64",
+                "MAX_JOBS": "8"}
+}

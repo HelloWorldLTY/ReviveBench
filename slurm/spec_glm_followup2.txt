@@ -1,0 +1,6 @@
+# Second batch of glm-5.3-flash infrastructure-failure re-runs (counted in the main table), queued after job 2461162 (afterany).
+# When the main batch 2460340 ended, two more runs had written no code and ended in "Request timed out": scada_dcs and mes_exec.
+# Not appended to spec_glm_followup.txt: 2461162 is queued and may read that file at any moment, so editing it would race.
+# Turn budgets match the main batch; new run_id m2, with m1 kept as evidence.
+scada_dcs      protocol glm-5.3-flash m2   180
+mes_exec       protocol glm-5.3-flash m2   150

@@ -1,0 +1,8 @@
+You are building a clean-room reimplementation of the core of a commercial circuit simulator (HSPICE / Spectre / PSpice class). Read README.md, SPEC.md and ENVIRONMENT.md first.
+
+Deliver `spicex` in this workspace:
+- `bash run_sim.sh <netlist.cir> <out.csv>` parses the SPICE netlist subset in SPEC.md and runs .op / .dc / .tran, writing the CSV described there (column names and conventions matter; check them against examples/*/reference.csv).
+- Modified nodal analysis with proper stamping of R, C, L (branch current unknown), V and I sources, exponential diodes and Shichman–Hodges level-1 MOSFETs; Newton–Raphson with junction voltage limiting and gmin/source stepping fallbacks; transient with an implicit method (trapezoidal or Gear) and local-truncation-error timestep control; correct handling of PULSE/SIN/PWL breakpoints and `uic` initial conditions.
+- Python + NumPy only. Validate against every example (interpolate onto the reference time grid, compute RMS/max errors relative to each signal's range) and write your own tests, including stiff and strongly nonlinear circuits.
+
+Finish with `NOTES.md` describing algorithms and the accuracy on the examples. Work autonomously; do not ask questions.

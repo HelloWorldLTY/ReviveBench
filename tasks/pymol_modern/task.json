@@ -1,0 +1,13 @@
+{
+  "id": "pymol_modern",
+  "tier": "T5-build-reproduce",
+  "description": "PyMOL open-source v2.3.0 (Feb 2019; C++ extension + Python; setup.py written for Python 3.7 / distutils / NumPy 1.x) must build and run headless under Python 3.12 (no distutils) with NumPy >= 2, reproducing the reference numerical behaviour (atom counts, distances, DSS secondary structure, alignment RMSD, FASTA) and ray-traced PNG rendering.",
+  "source": "https://github.com/schrodinger/pymol-open-source @ v2.3.0 (7ad6acefa6abad86705afec3948015465faf15d2)",
+  "env": "pymol_build",
+  "per_run_env": "conda-clone",
+  "oracle_env": "oracle_pymol",
+  "visible_tests": ["testing/", "test/"],
+  "verify_timeout": 2400,
+  "constraints": {"numpy": "2.0"},
+  "python_min": "3.12"
+}

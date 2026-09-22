@@ -1,0 +1,30 @@
+{
+  "id": "sirna_data_grabber_reconstruct2026",
+  "tier": "T3-reconstruct-2026",
+  "cohort": "post-cutoff-2026",
+  "description": "sirna_data: module src/sirna_data/rank_confidence.py (452 lines, imported by 2 modules) deleted and the package's own test suite hidden; verifier = the hidden suite (240 tests pass in a fresh env).",
+  "source": "sirna-data-grabber @ 08c03b17dc2d97e2fafb2ab89825f3ccc84b3e02",
+  "env": "py312_base",
+  "package": "sirna_data",
+  "target_module": "src/sirna_data/rank_confidence.py",
+  "public_names": [
+    "min_top_k_for_confidence",
+    "min_top_k_for_confidence_multi",
+    "probability_curves_for_pccs",
+    "probability_true_top_in_predicted_top_k",
+    "spearman_to_pearson"
+  ],
+  "imported_names": [
+    "_default_k_values",
+    "min_top_k_for_confidence",
+    "probability_curves_for_pccs"
+  ],
+  "hidden_tests": [
+    "tests"
+  ],
+  "visible_tests": [],
+  "oracle_passed": 240,
+  "oracle_summary": "240 passed, 2 skipped, 28 warnings in 10.25s",
+  "verify_timeout": 2400,
+  "constraints": {}
+}

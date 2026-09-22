@@ -1,0 +1,11 @@
+# ERP transactional core -- every check is zero tolerance (money as integer minor units, quantities as whole pieces).
+# Invariants are checked per document, the trial balance to the minor unit, MRP planned orders one by one: all n-of-n.
+# Asset verification: reference self-check 20/20, independent audit 22/22 (derived from the SPEC formulas without
+# relying on the reference internals), calibration 4/4, empty-workspace baseline 0/4.
+# 150 turns: pure integer logic, no numerical solver and no mesh; the work sits between synth (150) and cad3d (180).
+# task        condition  model                                  run_id  max_turns
+erp_ledger noagent none base0 10
+erp_ledger protocol us.anthropic.claude-fable-5-1[1m] m1 150
+erp_ledger protocol us.anthropic.claude-sonnet-5 m1 150
+erp_ledger protocol us.anthropic.claude-opus-5[1m] m1 150
+erp_ledger protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 150

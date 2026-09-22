@@ -1,0 +1,38 @@
+# Full batch for the three gpt-5.6 variants (the other 10 industrial categories; scada/cfd/erp were done in pilot p1)
+#
+# max_turns matches, task by task, what the Claude models got under the protocol condition; a different budget would make the comparison unfair.
+#
+# WARNING cost accounting: cost_usd is computed at the launch model's rate (claude-opus-4-8) and is fictional for these models.
+#   aggregate.py blanks and flags it, and usage_report.py lists them separately with tokens only. They must never share a $ column.
+#
+# task        condition  model           run_id  max_turns
+stats_nist protocol gpt-5.6-sol m1 100
+stats_nist protocol gpt-5.6-luna m1 100
+stats_nist protocol gpt-5.6-terra m1 100
+spice_ngspice protocol gpt-5.6-sol m1 100
+spice_ngspice protocol gpt-5.6-luna m1 100
+spice_ngspice protocol gpt-5.6-terra m1 100
+plc_iec61131 protocol gpt-5.6-sol m1 100
+plc_iec61131 protocol gpt-5.6-luna m1 100
+plc_iec61131 protocol gpt-5.6-terra m1 100
+fem_nafems protocol gpt-5.6-sol m1 100
+fem_nafems protocol gpt-5.6-luna m1 100
+fem_nafems protocol gpt-5.6-terra m1 100
+cad2d_dxf protocol gpt-5.6-sol m1 120
+cad2d_dxf protocol gpt-5.6-luna m1 120
+cad2d_dxf protocol gpt-5.6-terra m1 120
+synth_verilog protocol gpt-5.6-sol m1 150
+synth_verilog protocol gpt-5.6-luna m1 150
+synth_verilog protocol gpt-5.6-terra m1 150
+cad3d_brep protocol gpt-5.6-sol m1 180
+cad3d_brep protocol gpt-5.6-luna m1 180
+cad3d_brep protocol gpt-5.6-terra m1 180
+place_route protocol gpt-5.6-sol m1 180
+place_route protocol gpt-5.6-luna m1 180
+place_route protocol gpt-5.6-terra m1 180
+mes_exec protocol gpt-5.6-sol m1 150
+mes_exec protocol gpt-5.6-luna m1 150
+mes_exec protocol gpt-5.6-terra m1 150
+plm_bom protocol gpt-5.6-sol m1 150
+plm_bom protocol gpt-5.6-luna m1 150
+plm_bom protocol gpt-5.6-terra m1 150

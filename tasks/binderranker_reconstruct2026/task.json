@@ -1,0 +1,32 @@
+{
+  "id": "binderranker_reconstruct2026",
+  "tier": "T3-reconstruct-2026",
+  "cohort": "post-cutoff-2026",
+  "description": "protein_design_agent: module src/protein_design_agent/agent/providers/base.py (125 lines, imported by 13 modules) deleted and the package's own test suite hidden; verifier = the hidden suite (843 tests pass in a fresh env).",
+  "source": "binderranker @ d1d16f1e826b893f101304cc743c196fa41c3476",
+  "env": "py312_base",
+  "package": "protein_design_agent",
+  "target_module": "src/protein_design_agent/agent/providers/base.py",
+  "public_names": [
+    "ProviderError",
+    "ProviderOutputError",
+    "RequestParserProvider",
+    "StructuredJSONProvider",
+    "validate_provider_payload"
+  ],
+  "imported_names": [
+    "ProviderError",
+    "ProviderOutputError",
+    "RequestParserProvider",
+    "StructuredJSONProvider",
+    "validate_provider_payload"
+  ],
+  "hidden_tests": [
+    "tests"
+  ],
+  "visible_tests": [],
+  "oracle_passed": 843,
+  "oracle_summary": "843 passed in 8.93s",
+  "verify_timeout": 2400,
+  "constraints": {}
+}

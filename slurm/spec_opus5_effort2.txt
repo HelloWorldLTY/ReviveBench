@@ -1,0 +1,18 @@
+# opus5 reasoning-effort ablation, second arm: tasks that actually have headroom
+#
+# The first arm (erp_ledger + scada_dcs) produced a null result, but the tasks were the problem:
+# opus-5 already scores full marks on both at the default level (erp 10/10, scada 11/11),
+# leaving no headroom, so no effort setting could change anything. That null measured my task choice, not effort.
+#
+# cad2d_dxf is the only task where opus-5 still has clear headroom and fine enough granularity: 29/31,
+# with 31 hidden geometric operations judged individually, so if effort buys anything it should show up there.
+#
+# The cost column is real (claude-opus-5 goes through the gateway's /anthropic side, with no adapter).
+# max_turns matches this task's existing protocol budget of 120.
+#
+# task        condition  model          run_id       max_turns
+cad2d_dxf protocol claude-opus-5 eff2-low 120
+cad2d_dxf protocol claude-opus-5 eff2-medium 120
+cad2d_dxf protocol claude-opus-5 eff2-high 120
+cad2d_dxf protocol claude-opus-5 eff2-xhigh 120
+cad2d_dxf protocol claude-opus-5 eff2-max 120

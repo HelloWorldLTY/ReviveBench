@@ -1,0 +1,4 @@
+{"id": "cfd_solver", "tier": "I10-cae-cfd", "cohort": "industrial",
+ "description": "Clean-room CFD / nonlinear CAE solver (ANSYS Fluent / STAR-CCM+ / Abaqus-Explicit class): incompressible Navier-Stokes on a structured grid (steady Poiseuille and lid-driven cavity, unsteady Taylor-Green), 1-D nonlinear transport (viscous Burgers, inviscid shock with the Rankine-Hugoniot condition), and a hyperelastic bar under finite strain. Graded against CLOSED-FORM analytic solutions wherever one exists, plus conservation invariants that hold exactly; the Ghia lid-driven-cavity benchmark table is the only tabulated reference.",
+ "source": "analytic solutions (Poiseuille, Taylor-Green, Burgers, Rankine-Hugoniot, neo-Hookean bar) and the Ghia et al. 1982 cavity table; no reference implementation is trusted",
+ "env": "py312_numpy", "visible_tests": [], "verify_timeout": 7200, "constraints": {}, "domain_skill": "cae-cfd"}

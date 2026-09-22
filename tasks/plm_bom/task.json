@@ -1,0 +1,4 @@
+{"id": "plm_bom", "tier": "I13-plm", "cohort": "industrial",
+ "description": "Clean-room PLM core (Siemens Teamcenter / PTC Windchill / Dassault ENOVIA class): revision-controlled parts with date effectivity, variant-conditioned bills of material, date- and option-resolved BOM explosion with quantity roll-up, transitive where-used closure, and engineering change order impact analysis. Every answer is a set or an integer quantity determined exactly by the spec, so the whole task is graded with no tolerance at all.",
+ "source": "fully specified effectivity, variant and roll-up semantics; reference implementation cross-checked against hand-computed explosions and where-used closures",
+ "env": "py312_numpy", "visible_tests": [], "verify_timeout": 5400, "constraints": {}, "domain_skill": "plm-bom"}

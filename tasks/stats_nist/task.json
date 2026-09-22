@@ -1,0 +1,12 @@
+{
+  "id": "stats_nist",
+  "tier": "I1-stats-engine",
+  "cohort": "industrial",
+  "description": "Clean-room SAS/SPSS-class statistical engine: SPSS-style syntax (REGRESSION, NLR, ONEWAY, DESCRIPTIVES) with NIST StRD certified accuracy (43 datasets, LRE thresholds by difficulty). Only Python + NumPy allowed.",
+  "source": "NIST Statistical Reference Datasets (LLS 11, NLS 27, ANOVA 5)",
+  "env": "py312_numpy",
+  "visible_tests": [],
+  "verify_timeout": 3000,
+  "constraints": {},
+  "domain_skill": "stats-engine"
+}

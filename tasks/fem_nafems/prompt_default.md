@@ -1,0 +1,8 @@
+You are building a clean-room reimplementation of the core of a commercial structural analysis code (Nastran SOL101/SOL103, ABAQUS/Standard linear perturbation class). Read README.md, SPEC.md and ENVIRONMENT.md first.
+
+Deliver `femx` in this workspace:
+- `bash run_fem.sh <model.inp> <out.json>` parses the ABAQUS/CalculiX input subset in SPEC.md and solves linear static (displacements + averaged nodal stresses from Gauss-point extrapolation) and modal (lowest eigenfrequencies, consistent mass) problems for CPS4/CPS8/CPE4/CPE8 elements.
+- Correct isoparametric formulation (shape functions, Jacobians, B-matrices, full Gauss integration, plane stress vs plane strain constitutive matrices, thickness), sparse-aware assembly and solution that handles ~4000 nodes within minutes, and an eigen-solver for the generalised problem K φ = λ M φ that returns the lowest modes accurately (e.g. shift-invert or subspace iteration built on NumPy).
+- Python + NumPy only. Validate on both examples (compare every nodal displacement / every frequency to the reference) and write your own patch tests (rigid-body modes, constant-strain patch test, convergence against a beam solution).
+
+Finish with `NOTES.md` describing the formulation and the accuracy achieved. Work autonomously; do not ask questions.

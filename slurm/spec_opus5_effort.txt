@@ -1,0 +1,28 @@
+# opus5 reasoning-effort ablation
+#
+# claude-opus-5 connects directly to the gateway's /anthropic side with no adapter (that side already hosts claude-* deployments),
+# so cost_usd in this batch is real and can sit beside the other Claude models.
+#
+# The levels come from `claude --help`: low / medium / high / xhigh / max (five, not four).
+# WARNING an invalid level is silently ignored by the CLI, which falls back to the default and prints one warning line. Therefore:
+#   (a) the level strings must be exactly right; (b) before submitting, confirm that effort really reaches the wire and is accepted by the gateway,
+#       otherwise the five levels quietly collapse into one and produce an artefactual null result.
+#   Same trap as defects #18 (the 0.9 tolerance) and #28 (full marks for copying the formula): it looks like a measurement and is not.
+#
+# Only two zero-tolerance, uncopyable tasks are used:
+#   scada_dcs   11 scenarios, exact event sequences / registers / loops
+#   erp_ledger  10 scenarios, zero tolerance throughout
+# cfd_solver is explicitly excluded: copying the closed-form solutions was proven to earn full marks (defect #28), so effort differences are meaningless there.
+# The noagent baseline is archived for both tasks, so this batch does not re-run it.
+#
+# task        condition  model          run_id      max_turns
+scada_dcs protocol claude-opus-5 eff-low 180
+scada_dcs protocol claude-opus-5 eff-medium 180
+scada_dcs protocol claude-opus-5 eff-high 180
+scada_dcs protocol claude-opus-5 eff-xhigh 180
+scada_dcs protocol claude-opus-5 eff-max 180
+erp_ledger protocol claude-opus-5 eff-low 180
+erp_ledger protocol claude-opus-5 eff-medium 180
+erp_ledger protocol claude-opus-5 eff-high 180
+erp_ledger protocol claude-opus-5 eff-xhigh 180
+erp_ledger protocol claude-opus-5 eff-max 180

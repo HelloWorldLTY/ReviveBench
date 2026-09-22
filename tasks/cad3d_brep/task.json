@@ -1,0 +1,4 @@
+{"id": "cad3d_brep", "tier": "I7-cad-3d-kernel", "cohort": "industrial",
+ "description": "Clean-room 3D solid modelling kernel (Parasolid / ACIS class): primitives (box, cylinder, sphere, cone, torus), affine transforms, extrusion of closed profiles, revolution, and regularised booleans (union/intersection/difference); must report exact mass properties and export a watertight STL. Graded against OpenCASCADE on hidden models by mass properties, by exact topology (watertightness + Euler characteristic) and by point-membership classification on hidden query points.",
+ "source": "hidden models built with OCP (OpenCASCADE); references are its exact analytic mass properties and solid classifier",
+ "env": "py312_numpy", "visible_tests": [], "verify_timeout": 9000, "constraints": {}, "domain_skill": "cad3d-brep"}

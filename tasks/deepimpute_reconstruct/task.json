@@ -1,0 +1,16 @@
+{
+  "id": "deepimpute_reconstruct",
+  "tier": "T3-reconstruct",
+  "description": "deepimpute with its core module deepimpute/multinet.py deleted. Environment is the tool's native one (TF 2.10 / Keras 2.10), so only reconstruction is tested: rebuild MultiNet from the paper, README, remaining modules and tests.",
+  "source": "https://github.com/lanagarmire/deepimpute @ 713191cad69a9da6dedbe49a78282aef3f0930c2",
+  "env": "oracle_deepimpute",
+  "visible_tests": [
+    "tests/"
+  ],
+  "verify_timeout": 2400,
+  "constraints": {},
+  "thresholds": {
+    "r_masked_min": 0.8,
+    "r_resid_min": 0.15
+  }
+}

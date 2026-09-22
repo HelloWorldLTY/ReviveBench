@@ -1,0 +1,2 @@
+arch1 us.anthropic.claude-fable-5-1[1m] arch 60
+build1 us.anthropic.claude-fable-5-1[1m] build 260 arch1

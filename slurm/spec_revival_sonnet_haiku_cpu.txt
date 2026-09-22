@@ -1,0 +1,10 @@
+# Revival experiments, filling in sonnet/haiku, which had run only 6 of the 10 tasks. Verified from the trajectories:
+# the "sonnet"/"haiku" of that time were claude-sonnet-5 /
+# claude-haiku-4-5-20251001, the same models as these Bedrock ones, reached by a different route (the Anthropic API).
+# The condition matches the existing sonnet/haiku revival runs (default); turn budgets match fable's max_turns on the same tasks.
+dca_keras3     default us.anthropic.claude-sonnet-5                   s1 100
+dca_keras3     default us.anthropic.claude-haiku-4-5-20251001-v1:0    s1 100
+pymol_modern   default us.anthropic.claude-sonnet-5                   s1 120
+pymol_modern   default us.anthropic.claude-haiku-4-5-20251001-v1:0    s1 120
+qupath_modern  default us.anthropic.claude-sonnet-5                   s1 120
+qupath_modern  default us.anthropic.claude-haiku-4-5-20251001-v1:0    s1 120

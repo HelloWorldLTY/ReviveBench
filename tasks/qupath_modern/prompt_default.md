@@ -1,0 +1,12 @@
+You are restoring an old release of a scientific software application so that it builds and runs again on a modern toolchain.
+
+This is the source tree of QuPath v0.2.3 (Bankhead et al., Sci Rep 2017; released September 2020), a Java/JavaFX application for digital pathology image analysis. Its Gradle build (Gradle 6.5 wrapper, JDK 14 `jpackage`, JavaFX 14, Groovy, Bio-Formats, OpenSlide, ImageJ) does not work with today's toolchain. Read ENVIRONMENT.md: only JDK 21 is available, no display (use xvfb-run), internet for Maven/Gradle is reachable.
+
+Goal, in THIS environment:
+- Make the project build with JDK 21 and a current Gradle (update the wrapper/build scripts and any dependencies that are incompatible with JDK 21, e.g. JavaFX, Gradle plugins, Groovy, ByteBuddy/Mockito-style libraries), producing a runnable QuPath command line (`./gradlew jpackage` or equivalent).
+- Provide `run_qupath.sh` at the workspace root that forwards its arguments to the built QuPath CLI, so that `xvfb-run -a bash run_qupath.sh script --image sample_data/CMU-1-Small-Region.svs some_script.groovy` runs a Groovy script headless against that slide (OpenSlide/Bio-Formats readers must work for .svs).
+- Preserve behaviour: image reading, pixel calibration, `setImageType`, `runPlugin('qupath.imagej.detect.cells.WatershedCellDetection', ...)` and its measurements must give the same results as the official 0.2.3 release (fix build/compatibility only; do not change algorithms or default parameters).
+- The unit tests of qupath-core and qupath-core-processing should pass under `./gradlew test` (adapt only test infrastructure that is incompatible with JDK 21; do not delete tests or weaken assertions).
+- Write `RESTORE_NOTES.md` with the root causes and the exact build/run commands.
+
+Work autonomously; do not ask questions.

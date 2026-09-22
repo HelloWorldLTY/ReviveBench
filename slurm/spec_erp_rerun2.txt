@@ -1,0 +1,16 @@
+# ERP round three, run_id=m3, re-running sonnet5 and opus5 only.
+# m1: all four runs cut off by a 502 on turn 1 (gateway failure); effective sample 0.
+# m2: sonnet5 and opus5 were interrupted by `Connection refused` -- caused by my own restart of the tunnel at 19:06,
+#     so self-inflicted (25 and 18 turns against a normal 60-150); and m2 was still graded against the reference
+#     answer containing defect #22. Re-scoring would not rescue it: attaching a score to an unfinished run is
+#     dishonest, so it is re-run instead.
+# Defect #22: ref_erp applied a //100000 scale to foreign-currency conversion that the SPEC never defined. fable,
+#     opus and sonnet produced digit-identical answers contradicting my reference -- all three right, the oracle
+#     wrong. The conversion and the SPEC example were fixed (71234->712340), scenario amounts restored to sane
+#     magnitudes, and a magnitude guard added.
+# Status: calibration 4/4, empty baseline 0/4, independent audit 29/29 (including the new fx and magnitude coverage);
+#         fable5.1 m2 becomes 5/5 PASS after the correction; haiku4.5 m2 stays 2/5, a genuine failure.
+# The gateway was measured at HTTP 200 before submission. 150 turns, as for the other models.
+# task        condition  model                                  run_id  max_turns
+erp_ledger protocol us.anthropic.claude-sonnet-5 m3 150
+erp_ledger protocol us.anthropic.claude-opus-5[1m] m3 150

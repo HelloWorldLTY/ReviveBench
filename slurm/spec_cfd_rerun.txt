@@ -1,0 +1,11 @@
+# CFD re-run after defect #24: the taylor_green probe INPUT key `probe_xy` was named nowhere in the
+# spec. Three models each invented a different name (probe_points / probes / probe_x+probe_y) and
+# none guessed it; fable5.1 passed only because it wrote a fuzzy key-alias resolver. SPEC.md §3 now
+# carries an exhaustive input/output key table. The spec GAINED information, so this must be a
+# re-run, not a re-score. run_id m2 leaves the m1 evidence intact.
+# task        condition  model                                 run_id  max_turns
+cfd_solver noagent none base1 10
+cfd_solver protocol us.anthropic.claude-fable-5-1[1m] m2 180
+cfd_solver protocol us.anthropic.claude-opus-5[1m] m2 180
+cfd_solver protocol us.anthropic.claude-sonnet-5 m2 180
+cfd_solver protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m2 180

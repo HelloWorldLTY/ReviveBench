@@ -1,0 +1,22 @@
+{
+  "id": "deepimpute_keras3",
+  "tier": "T1-rot",
+  "description": "deepimpute (Arisdakessian et al. 2019, last commit 2022-01) must run under Python 3.11 / TensorFlow>=2.16 (Keras 3) / NumPy>=2 / pandas>=2.",
+  "source": "https://github.com/lanagarmire/deepimpute @ 713191cad69a9da6dedbe49a78282aef3f0930c2",
+  "env": "modern_tf",
+  "oracle_env": "oracle_deepimpute",
+  "visible_tests": [
+    "tests/"
+  ],
+  "verify_timeout": 2400,
+  "constraints": {
+    "tensorflow": "2.16",
+    "keras": "3.0",
+    "numpy": "2.0",
+    "pandas": "2.0"
+  },
+  "thresholds": {
+    "r_masked_min": 0.8,
+    "r_resid_min": 0.15
+  }
+}

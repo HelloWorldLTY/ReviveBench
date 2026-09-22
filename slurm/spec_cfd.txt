@@ -1,0 +1,14 @@
+# CFD / nonlinear CAE -- the tenth industrial category. Graded against closed-form solutions, not a reference implementation.
+# Asset status: the analytic reference self-check passes, 13 cases spot-checked by hand, calibration 5/5, empty baseline 0/5.
+# Achievability probe measured; every threshold has 1-8 orders of magnitude of headroom:
+#   Poiseuille/Couette 1e-14~1e-16 against 1e-6 | Taylor-Green 1e-8 against 2e-3 (divergence 8e-15 against 1e-8)
+#   viscous Burgers 3.2e-4~1.4e-3 against 5e-3 | exact shock position, flux balance 1e-15 against 1e-8 | hyperelastic 0 against 1e-9
+# Before the batch ran, the probe caught four unreachable thresholds of my own: the travelling-wave formula missing x0,
+#   a probe point off the grid nodes, a shock x0 not on a grid face, and Q integrated by trapezoid. The lid-driven
+#   cavity case was dropped as well, its threshold not provably reachable.
+# task       condition  model                                  run_id  max_turns
+cfd_solver noagent none base0 10
+cfd_solver protocol us.anthropic.claude-fable-5-1[1m] m1 180
+cfd_solver protocol us.anthropic.claude-opus-5[1m] m1 180
+cfd_solver protocol us.anthropic.claude-sonnet-5 m1 180
+cfd_solver protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 180

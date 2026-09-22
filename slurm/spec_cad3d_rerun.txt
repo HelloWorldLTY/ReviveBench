@@ -1,0 +1,11 @@
+# cad3d_brep re-run: opus5 and haiku4.5.
+# Both runs in the first batch (job 2443704) ended in a Bedrock `API Error: 502` and were flagged interrupted:
+#   opus5    only 7 turns, $0.25, no code in the workspace -- a pure gateway interruption, no capability conclusion
+#   haiku4.5 85 turns, wrote a 22KB solidx.py and three STLs, but line 5 of run_solid.sh was a Python statement,
+#            so bash exited with a syntax error (rc=2) -- a failure of the entry script, not the geometry kernel,
+#            and it too was cut off by a 502
+# The turn cap stays 180, as for fable5.1 / sonnet5 in the first batch, keeping the conditions comparable.
+# run_id m2, keeping the original m1 records as evidence of the interruption.
+# task        condition  model                                  run_id  max_turns
+cad3d_brep protocol us.anthropic.claude-opus-5[1m] m2 180
+cad3d_brep protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m2 180

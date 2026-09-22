@@ -1,0 +1,4 @@
+{"id": "erp_ledger", "tier": "I8-erp-core", "cohort": "industrial",
+ "description": "Clean-room ERP transactional core (SAP S/4HANA class): double-entry general ledger with multi-currency and period close, perpetual inventory with batch/moving-average valuation, and MRP (BOM explosion, netting, planned orders). Judged almost entirely without tolerances: transactional invariants must hold after every posting, and the trial balance, valuation layers and MRP plan must match a reference implementation exactly, in integer minor units and whole pieces.",
+ "source": "hidden transaction journals; references from an independent reference implementation, all quantities exact integers",
+ "env": "py312_numpy", "visible_tests": [], "verify_timeout": 5400, "constraints": {}, "domain_skill": "erp-ledger"}

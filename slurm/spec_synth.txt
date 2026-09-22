@@ -1,0 +1,6 @@
+# EDA logic synthesis — the hardest oracle in the suite (SAT-proved equivalence, not tolerances).
+# Baseline first (empty workspace must score 0), then two models under the protocol condition.
+# task           condition  model                                run_id  max_turns
+synth_verilog noagent none base0 10
+synth_verilog protocol us.anthropic.claude-fable-5-1[1m] m1 150
+synth_verilog protocol us.anthropic.claude-sonnet-5 m1 150

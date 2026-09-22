@@ -1,0 +1,10 @@
+# four-model comparison on the two engines that are cheap enough to repeat
+# task  condition  model  run_id  max_turns
+spice_ngspice protocol us.anthropic.claude-fable-5-1[1m] m1 100
+spice_ngspice protocol us.anthropic.claude-opus-5[1m] m1 100
+spice_ngspice protocol us.anthropic.claude-sonnet-5 m1 100
+spice_ngspice protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 100
+plc_iec61131 protocol us.anthropic.claude-fable-5-1[1m] m1 100
+plc_iec61131 protocol us.anthropic.claude-opus-5[1m] m1 100
+plc_iec61131 protocol us.anthropic.claude-sonnet-5 m1 100
+plc_iec61131 protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 100

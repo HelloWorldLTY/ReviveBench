@@ -1,0 +1,11 @@
+# ERP re-run, run_id=m2. In the first batch (job 2444383, m1) all four agent runs were cut off on turn 1 by
+# `API Error: 502` (1 turn, $0.00, a workspace without even run_erp.sh),
+# so under the flag-and-drop rule the effective sample is 0 and the batch says nothing about the task.
+# The cause was the login-node tunnel failing around 18:15, not model capability.
+# Before this submission the gateway was measured: a real model request returns HTTP 200.
+# 150 turns, as in the first batch. The SPEC now states the entry script's cwd contract (defect #20).
+# task        condition  model                                  run_id  max_turns
+erp_ledger protocol us.anthropic.claude-fable-5-1[1m] m2 150
+erp_ledger protocol us.anthropic.claude-sonnet-5 m2 150
+erp_ledger protocol us.anthropic.claude-opus-5[1m] m2 150
+erp_ledger protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m2 150

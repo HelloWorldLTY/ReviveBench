@@ -1,0 +1,3 @@
+j1_bracket us.anthropic.claude-fable-5-1[1m] 60
+j2_flange us.anthropic.claude-fable-5-1[1m] 60
+j3_lbracket us.anthropic.claude-fable-5-1[1m] 60

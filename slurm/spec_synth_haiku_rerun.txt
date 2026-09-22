@@ -1,0 +1,10 @@
+# synth_verilog re-run for haiku4.5, run_id=m2.
+# The first run (job 2443705, m1) failed all 13 designs with can't open file '/tmp/synthv_.../synthx.py':
+#   the entry script used the bare relative path python3 synthx.py while the verifier calls it with a temporary
+#   directory as cwd, and the SPEC at the time never said cwd was arbitrary -- the contract gap was mine (defect #20).
+# Re-graded offline after fixing cwd: 4/13 proven, 9/13 netlists legal, median area 4.85x -- still a failure,
+#   but the recorded 0/13 was exaggerated by the contract gap. This re-run, after the contract was written down,
+#   takes a clean data point.
+# 150 turns, as for the other three models.
+# task           condition  model                                  run_id  max_turns
+synth_verilog protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m2 150

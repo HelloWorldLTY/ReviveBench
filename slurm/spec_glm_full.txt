@@ -1,0 +1,15 @@
+# glm-5.3-flash across the 13 industrial tasks. Turn budgets align task by task with the kimi / gpt-5.6 batches, for comparability.
+# Usage: sbatch slurm/batch_glm.sbatch slurm/spec_glm_full.txt 3
+stats_nist     protocol glm-5.3-flash m1 100
+spice_ngspice  protocol glm-5.3-flash m1 100
+plc_iec61131   protocol glm-5.3-flash m1 100
+fem_nafems     protocol glm-5.3-flash m1 100
+cad2d_dxf      protocol glm-5.3-flash m1 120
+synth_verilog  protocol glm-5.3-flash m1 150
+cad3d_brep     protocol glm-5.3-flash m1 180
+erp_ledger     protocol glm-5.3-flash m1 180
+place_route    protocol glm-5.3-flash m1 180
+cfd_solver     protocol glm-5.3-flash m1 180
+scada_dcs      protocol glm-5.3-flash m1 180
+mes_exec       protocol glm-5.3-flash m1 150
+plm_bom        protocol glm-5.3-flash m1 150

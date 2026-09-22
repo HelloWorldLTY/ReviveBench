@@ -1,0 +1,17 @@
+# PLM product-lifecycle core -- the thirteenth industrial category, and the last.
+# Every answer is a set or an integer fixed exactly by the specification, so the whole task is zero tolerance.
+# Asset status: reference implementation hand-checked 17/17, 11 cases spot-checked by hand 20/20, calibration 6/6
+#   (19 expansions, 3 where-used, 4 revisions, 2 change impacts, 1 cycle detection, all exact), empty baseline 0/6.
+# One semantic ambiguity was pinned down before the batch: expanding a leaf root returns quantity 1 for itself, not
+#   an empty set. Unstated choices in the oracle are exactly where this suite's false negatives came from, so it is
+#   now written into both the code and the SPEC.
+# Trap coverage: quantities accumulating over multiple paths (2*5+3*7=31); three-level multiplication; the day before
+#   an effectivity boundary; a leap-year 29 February closing an ECO line; a variant option switching an alternate
+#   component; an expired revision returning null; two ECOs ordered by effective date where the later overrides the
+#   earlier (1->3->7); a cycle that exists only under one option.
+# task     condition  model                                  run_id  max_turns
+plm_bom noagent none base0 10
+plm_bom protocol us.anthropic.claude-fable-5-1[1m] m1 150
+plm_bom protocol us.anthropic.claude-opus-5[1m] m1 150
+plm_bom protocol us.anthropic.claude-sonnet-5 m1 150
+plm_bom protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 150

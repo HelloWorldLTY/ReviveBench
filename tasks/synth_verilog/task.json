@@ -1,0 +1,11 @@
+{
+  "id": "synth_verilog",
+  "tier": "I6-eda-synthesis",
+  "cohort": "industrial",
+  "description": "Clean-room RTL logic synthesiser (Synopsys Design Compiler / Cadence Genus class): reads a Verilog-2001 subset and emits a structural gate-level netlist built only from primitive gates and a DFF cell. Judged by SAT-based formal equivalence (complete proof for combinational designs, temporal induction with a bounded fallback for sequential ones) over 13 hidden designs, plus netlist legality and a simulation differential; area is reported against a production synthesiser but is not pass/fail.",
+  "source": "hidden RTL design set (tasks/synth_verilog/hidden/designs); Yosys + Icarus Verilog as oracle",
+  "env": "py312_numpy",
+  "visible_tests": [],
+  "verify_timeout": 9000,
+  "constraints": {}
+}

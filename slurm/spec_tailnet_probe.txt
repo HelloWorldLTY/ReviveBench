@@ -1,0 +1,1 @@
+# Empty spec: used only to check whether the Bedrock proxy is reachable from inside a compute-node job. Runs no tasks.

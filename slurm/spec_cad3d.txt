@@ -1,0 +1,8 @@
+# 3D solid modelling kernel — the second task graded on exact topology, not only tolerances.
+# Point-membership and Euler characteristic are n-of-n; only the mass properties carry slack.
+# Baseline first (empty workspace must fail), then two models under the protocol condition.
+# Harder than synth_verilog (mesh CSG from scratch), so the turn cap is higher.
+# task        condition  model                                 run_id  max_turns
+cad3d_brep noagent none base0 10
+cad3d_brep protocol us.anthropic.claude-fable-5-1[1m] m1 180
+cad3d_brep protocol us.anthropic.claude-sonnet-5 m1 180

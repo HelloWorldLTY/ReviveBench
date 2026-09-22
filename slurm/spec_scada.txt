@@ -1,0 +1,12 @@
+# SCADA/DCS runtime -- the eleventh industrial category. The engine is deterministic integer timing logic,
+# so the alarm log, the count/min/max queries and the Modbus register image are all zero tolerance; only floating-point quantities get 1e-9.
+# Asset status: reference engine hand-checked 17/17, 11 scenarios spot-checked by hand 12/12, calibration 5/5, empty baseline 0/5.
+# Trap coverage: an on-delay firing exactly on the third scan the condition holds; no event if the condition drops one scan early;
+#   a deadband collapsing a chattering log into a single ACT/CLR; an off-delay reset by a mid-flight rise; anti-windup;
+#   twavg differing sharply from avg under uneven weights; Modbus clamping at the top of the range.
+# task       condition  model                                  run_id  max_turns
+scada_dcs noagent none base0 10
+scada_dcs protocol us.anthropic.claude-fable-5-1[1m] m1 150
+scada_dcs protocol us.anthropic.claude-opus-5[1m] m1 150
+scada_dcs protocol us.anthropic.claude-sonnet-5 m1 150
+scada_dcs protocol us.anthropic.claude-haiku-4-5-20251001-v1:0 m1 150

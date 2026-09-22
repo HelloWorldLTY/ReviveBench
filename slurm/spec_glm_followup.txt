@@ -1,0 +1,18 @@
+# glm-5.3-flash follow-up batch, queued after the main batch 2460340 (afterany).
+#
+# 1. Infrastructure-failure re-runs (counted in the main table). All three m1 runs wrote no code and ended in
+#    "Request timed out", which is not a model result. m2 is the new run_id, m1 is kept as evidence, and
+#    build_matrix.py excludes INFRA and takes m2.
+#    Turn budgets match the main batch, keeping budgets equal.
+cad2d_dxf      protocol glm-5.3-flash m2   120
+place_route    protocol glm-5.3-flash m2   180
+cfd_solver     protocol glm-5.3-flash m2   180
+#
+# 2. Headroom probes (option B, excluded from the main table). They answer one question: is a failure at the
+#    cap bounded by the turn budget?
+#    run_id hp2x does not match the main table's ^(m|p|s)\d+$, so build_matrix.py drops it automatically;
+#    aggregate.py groups by model@max_turns, so it will not merge them with the main runs either.
+#    These two were chosen because both failed at the cap and they sit in different grading paradigms
+#    (formal proof and numerical tolerance).
+synth_verilog  protocol glm-5.3-flash hp2x 300
+spice_ngspice  protocol glm-5.3-flash hp2x 200
